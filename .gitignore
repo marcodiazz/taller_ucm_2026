@@ -1,0 +1,11 @@
+.venv/
+.env
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Salidas locales del taller
+*.csv
+*.parquet
+*.sqlite
+*.db
