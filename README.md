@@ -1,11 +1,10 @@
 # Taller UCM — IA generativa aplicada a identificación de aves
 
-Proyecto base para el taller: subir o grabar un audio, analizarlo con BirdNET y generar una ficha divulgativa del ave con un LLM.
+Proyecto base para el taller: subir o grabar un audio, analizarlo con BirdNET y generar una ficha del ave con un LLM.
 
 ## Requisitos
 
 - Python 3.11 o superior.
-- Conexión a internet la primera vez que BirdNET descargue modelos.
 - Opcional: una API key de OpenAI o Google Gemini para generar fichas reales.
 
 ## Instalación
@@ -38,7 +37,7 @@ La clave de Gemini se puede crear en [Google AI Studio](https://aistudio.google.
 
 Los modelos se pueden cambiar con `OPENAI_MODEL` y `GEMINI_MODEL`. Si no hay
 una clave para el proveedor seleccionado, la aplicación devuelve una ficha
-simulada para que el taller pueda continuar.
+simulada.
 
 ## Ejecutar la aplicación
 
@@ -106,10 +105,7 @@ Ideas avanzadas:
 - Añadir filtro por localización y fecha.
 - Cachear fichas generadas por especie.
 - Guardar resultados en CSV o SQLite.
-- Añadir imágenes con atribución desde Wikimedia Commons.
 
 ## Audios de ejemplo
 
 Coloca audios de Xeno-canto u otras fuentes abiertas en la carpeta `sample_audio/`.
-
-Importante: conserva la atribución y la licencia de cada audio.
