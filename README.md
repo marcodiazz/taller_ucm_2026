@@ -16,7 +16,32 @@ source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
 ```
+### Alternativa más rápida a pip
 
+Para acelerar la instalación de puede usar uv en vez de pip:
+```bash
+  uv venv --python 3.11
+  source .venv/bin/activate
+  uv pip install -r requirements.txt
+```
+
+  En Windows:
+```bash
+uv venv --python 3.11
+.venv\Scripts\activate
+uv pip install -r requirements.txt
+```
+
+  Para instalar uv:
+```bash
+python3.11 -m pip install uv
+```
+
+  Después:
+```bash
+uv venv --python 3.11
+uv pip install -r requirements.txt
+```
 Edita `.env`, selecciona un proveedor y añade su clave si quieres usar generación real.
 
 OpenAI:
