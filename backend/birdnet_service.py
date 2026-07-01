@@ -41,7 +41,7 @@ def analyze_audio(
         return []
 
     detections = _normalize_predictions(dataframe)
-    
+
     # TODO filtrar detecciones por confianza mínima
     filtered = [
         detection for detection in detections if detection.score >= min_confidence
@@ -51,9 +51,12 @@ def analyze_audio(
     # puede aparecer varias veces. Para la interfaz conservamos su mejor resultado.
     # Todo
     filtered.sort(key=lambda item: item.score, reverse=True)
+
     unique_detections: dict[str, Detection] = {}
+
     for detection in filtered:
-        unique_detections.setdefault(detection.scientific_name, detection)
+        if detection.scientific_name not in unique_detections:
+            unique_detections[detection.scientific_name] = detection
 
     # TODO alumno avanzado:
     # Comparar esta vista agrupada con una línea temporal que muestre todas

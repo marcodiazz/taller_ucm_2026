@@ -3,10 +3,8 @@ import json
 from backend import settings
 from backend.schemas import SpeciesCardRequest, SpeciesCardResponse
 
-
 SYSTEM_PROMPT = (
-    "Eres un divulgador experto en aves y bioacústica. "
-    "Respondes siempre en español."
+    "Eres un divulgador experto en aves y bioacústica. Respondes siempre en español."
 )
 
 
@@ -24,9 +22,7 @@ def generate_species_card(request: SpeciesCardRequest) -> SpeciesCardResponse:
             return _mock_species_card(request)
         return _generate_with_gemini(request)
 
-    raise ValueError(
-        f"Proveedor LLM no válido: '{provider}'. Usa 'openai' o 'gemini'."
-    )
+    raise ValueError(f"Proveedor LLM no válido: '{provider}'. Usa 'openai' o 'gemini'.")
 
 
 def _generate_with_openai(request: SpeciesCardRequest) -> SpeciesCardResponse:
@@ -97,7 +93,9 @@ def _mock_species_card(request: SpeciesCardRequest) -> SpeciesCardResponse:
     elif request.score >= 0.3:
         confidence_note = "La confianza es media: esta especie es una candidata razonable, no una identificación definitiva."
     else:
-        confidence_note = "La confianza es baja: el resultado debe tratarse solo como una pista."
+        confidence_note = (
+            "La confianza es baja: el resultado debe tratarse solo como una pista."
+        )
 
     return SpeciesCardResponse(
         scientific_name=request.scientific_name,

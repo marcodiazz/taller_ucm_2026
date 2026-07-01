@@ -6,10 +6,8 @@ Uso:
 
 from pathlib import Path
 
-import birdnet
-
 # TODO Definir la ruta del audio
-AUDIO_PATH = Path("./sample_audio/LaCabrera.wav")
+AUDIO_PATH = Path("./")
 
 
 def main() -> None:
@@ -19,15 +17,15 @@ def main() -> None:
 
     # TODO Cargar el modelo
     print("🔋 Cargando modelo BirdNET...")
-    model = birdnet.load("acoustic", "2.4", "tf", lang="es")
+    # model =
 
     # TODO Hacer la predicción del audio con el modelo:
     print(f" 🔊 Analizando: {AUDIO_PATH}")
-    predictions = model.predict(str(AUDIO_PATH))
+    # predictions =
 
     # TODO Mostrar las detecciones
     print("\n 🔍 Primeras detecciones:")
-    print(predictions.to_dataframe().drop(columns=["input"]).head(10))
+    # print(predictions.to_dataframe().drop(columns=["input"]).head(10))
 
 
 if __name__ == "__main__":

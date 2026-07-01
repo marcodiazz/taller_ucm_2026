@@ -7,10 +7,9 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
 from backend import settings
-from backend.birdnet_service import analyze_audio
+from backend.birdnet_service_student import analyze_audio
 from backend.llm_service import generate_species_card
 from backend.schemas import AnalyzeResponse, SpeciesCardRequest, SpeciesCardResponse
-
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 FRONTEND_DIR = PROJECT_ROOT / "frontend"
@@ -49,7 +48,9 @@ async def analyze(
         raise HTTPException(status_code=400, detail="top_k debe estar entre 1 y 20.")
 
     if min_confidence < 0 or min_confidence > 1:
-        raise HTTPException(status_code=400, detail="min_confidence debe estar entre 0 y 1.")
+        raise HTTPException(
+            status_code=400, detail="min_confidence debe estar entre 0 y 1."
+        )
 
     suffix = Path(file.filename or "audio.wav").suffix or ".wav"
 
